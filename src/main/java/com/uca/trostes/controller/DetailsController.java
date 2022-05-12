@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.uca.trostes.jqgrid.JqgridFilter;
 import com.uca.trostes.jqgrid.JqgridResponse;
 import com.uca.trostes.model.Details;
-import com.uca.trostes.model.Teacher;
 import com.uca.trostes.repository.detailsRepository;
 
 @Controller 
@@ -28,7 +27,7 @@ public class DetailsController {
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("details/index.jsp");
+		mv.setViewName("teacher/index.jsp");
 		return mv;
 	}
 	@RequestMapping(value = "/gridDetails", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
@@ -46,7 +45,7 @@ public class DetailsController {
 		            ,JqgridFilter.getField(filters, "group") 
 		            ,JqgridFilter.getField(filters, "classroom") 
 		            ,JqgridFilter.getField(filters, "signature") 
-		            ,JqgridFilter.getField(filters, "idTeacher") 
+		            ,JqgridFilter.getFieldInteger(filters, "idTeacher") 
 		  
 				);
 		 JqgridResponse<Details> jqgridDetail = new JqgridResponse<Details>();
